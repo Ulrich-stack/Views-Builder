@@ -1,0 +1,1 @@
+Views-Builder is a JavaScript library built with Mithril.js for creating customizable and interactive user interfaces. It provides a simple and intuitive way to construct dynamic views by allowing users to drag and drop elements to build layouts, configure components.
