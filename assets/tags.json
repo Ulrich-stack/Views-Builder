@@ -1,0 +1,133 @@
+[
+    {
+        "id": "hx",
+        "value": "hx",
+        "type": "simple"
+    },
+    {
+        "id": "hr",
+        "value": "hr",
+        "type": "simple"
+    },
+    {
+        "id": "img",
+        "value": "img",
+        "type": "simple"
+    },
+    {
+        "id": "span",
+        "value": "span",
+        "type": "simple"
+    },
+    {
+        "id": "radio",
+        "value": "radio",
+        "type": "simple"
+    },
+    {
+        "id": "label",
+        "value": "label",
+        "type": "simple"
+    },
+    {
+        "id": "icon",
+        "value": "icon",
+        "type": "simple"
+    },
+    {
+        "id": "input",
+        "value": "input",
+        "type": "simple"
+    },
+    {
+        "id": "button",
+        "value": "button",
+        "type": "simple"
+    },
+    {
+        "id": "select",
+        "value": "select",
+        "type": "simple"
+    },
+    {
+        "id": "textarea",
+        "value": "textarea",
+        "type": "simple"
+    },
+    {
+        "id": "nav",
+        "value": "nav",
+        "type":"container"
+    },
+    {
+        "id": "tag",
+        "value": "tag",
+        "type":"container"
+    },
+    {
+        "id": "link",
+        "value": "link",
+        "type":"container"
+    },
+    {
+        "id": "list",
+        "value": "list",
+        "type":"container"
+    },
+    {
+        "id": "form",
+        "value": "form",
+        "type":"container"
+    },
+    {
+        "id": "group",
+        "value": "group",
+        "type":"container"
+    },
+    {
+        "id": "table",
+        "value": "table",
+        "type":"container"
+    },
+    {
+        "id": "accordion",
+        "value": "accordion",
+        "type":"container"
+    },
+    {
+        "id": "dropdown",
+        "value": "dropdown",
+        "type":"container"
+    },
+    {
+        "id": "paragraph",
+        "value": "paragraph",
+        "type":"container"
+    },
+    {
+        "id": "outlet",
+        "value": "outlet",
+        "type":"widgets"
+    },
+    {
+        "id": "wizard",
+        "value": "wizard",
+        "type":"widgets"
+    },
+    {
+        "id": "treeview",
+        "value": "treeview",
+        "type":"widgets"
+    },
+    {
+        "id": "carousel",
+        "value": "carousel",
+        "type":"widgets"
+    },
+    {
+        "id": "display",
+        "value": "display",
+        "type":"widgets"
+    }
+]
+
