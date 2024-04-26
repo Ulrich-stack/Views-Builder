@@ -45,7 +45,7 @@ export function createTempDiv(container) {
   };
 
   container.push({
-    type: "group",
+    tag: "group",
     attributs: tempDivAttributes,
     children: [],
   });

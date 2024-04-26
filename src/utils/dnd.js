@@ -117,3 +117,8 @@ export function leaveContainer(container, containers, id) {
     }
   }
 }
+
+export function handleComponentClicked(container, id){
+    const parent = getParentById(container, id);
+    return getEltById(parent, id);
+}

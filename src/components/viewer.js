@@ -4,80 +4,49 @@ import {
   dragItemStart,
   dropItem,
   enterContainer,
+  handleComponentClicked,
   leaveContainer,
 } from "../utils/dnd";
+import { hx } from "../componentsFactory/simple/hx";
+import { span } from "../componentsFactory/simple/span";
+import { hr } from "../componentsFactory/simple/hr";
+import { group } from "../componentsFactory/containers/group";
+import { button } from "../componentsFactory/simple/button";
+import { label } from "../componentsFactory/simple/label";
+import { input } from "../componentsFactory/simple/input";
+import { textarea } from "../componentsFactory/simple/textarea";
+import { paragraph } from "../componentsFactory/containers/paragraph";
 
 export const Viewer = {
   view: function (vnode) {
-    if (vnode.attrs.component.type == "span")
-      return m(
-        "span",
-        {
-          id: vnode.attrs.component.attributs.id,
-          class: vnode.attrs.component.attributs.class,
-          name: vnode.attrs.component.attributs.name,
-          title: vnode.attrs.component.attributs.title,
-          style: vnode.attrs.component.attributs.style,
-          draggable: true,
-        },
-        vnode.attrs.component.attributs.value || "Default"
-      );
-    else if (vnode.attrs.component.type == "hx")
-      return m(
-        vnode.attrs.component.attributs.balise,
-        {
-          id: vnode.attrs.component.attributs.id,
-          class: vnode.attrs.component.attributs.class,
-          name: vnode.attrs.component.attributs.name,
-          title: vnode.attrs.component.attributs.title,
-          style: vnode.attrs.component.attributs.style,
-          draggable: true,
-          ondragstart: (e) => {
-            e.stopPropagation();
-            const [src, drag] = dragItemStart(
-              vnode.attrs.container,
-              vnode.attrs.component.attributs.id
-            );
-            vnode.attrs.dnd.drag = drag;
-            vnode.attrs.containers.source = src;
-            console.log("Item ", drag, " source ", src);
-          },
-          ondragover: (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            vnode.attrs.containers.sink = dragItemOver(
-              vnode.attrs.container,
-              vnode.attrs.component.attributs.id
-            );
-          },
-          ondrop: (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log("drop ", vnode.attrs.dnd.drag);
-            const {source, sink, drag} = dropItem(
-              vnode.attrs.containers,
-              vnode.attrs.component.attributs.id,
-              vnode.attrs.dnd.drag
-            );
-            vnode.attrs.containers.source = source;
-            vnode.attrs.containers.sink = sink;
-            vnode.attrs.dnd.drag = drag;
-            vnode.attrs.dnd.drop = null;
-
-          },
-
-        },
-        vnode.attrs.component.attributs.value
-      );
-    else if (vnode.attrs.component.type == "hr")
-      return m("hr", {
-        id: vnode.attrs.component.attributs.id,
-        class: vnode.attrs.component.attributs.class,
-        name: vnode.attrs.component.attributs.name,
-        style: vnode.attrs.component.attributs.style,
-        draggable: true,
+    if (vnode.attrs.component.tag == "span")
+      return m(span, {
+        // Utilisation du composant span
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
       });
-    else if (vnode.attrs.component.type == "icon")
+    else if (vnode.attrs.component.tag == "hx")
+      return m(hx, {
+        // Utilisation du composant hx
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
+      });
+    else if (vnode.attrs.component.tag == "hr")
+      return m(hr, {
+        // Utilisation du composant hx
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
+      });
+    else if (vnode.attrs.component.tag == "icon")
       return m("i", {
         id: vnode.attrs.component.attributs.id,
         class: vnode.attrs.component.attributs.class,
@@ -85,124 +54,52 @@ export const Viewer = {
         style: vnode.attrs.component.attributs.style,
         draggable: true,
       });
-    else if (vnode.attrs.component.type == "group")
-      return m(
-        "div",
-        {
-          id: vnode.attrs.component.attributs.id,
-          style: vnode.attrs.component.attributs.style,
-          draggable: true,
-          ondragstart: (e) => {
-            //e.preventDefault();
-            e.stopPropagation();
-            const [src, drag] = dragItemStart(
-              vnode.attrs.container,
-              vnode.attrs.component.attributs.id
-            );
-            vnode.attrs.dnd.drag = drag;
-            vnode.attrs.containers.source = src;
-            console.log("Item ", drag, " source ", src);
-          },
-          ondragover: (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // vnode.attrs.containers.sink = dragItemOver(
-            //   vnode.attrs.container,
-            //   vnode.attrs.component.attributs.id
-            // );
-          },
-          ondragenter: (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            vnode.attrs.containers.sink = enterContainer(
-              vnode.attrs.container,
-              vnode.attrs.component.attributs.id,
-              vnode.attrs.dnd
-            );
-          },
-          ondrop: (e) => {  
-            e.preventDefault();
-            e.stopPropagation();
-            console.log("drop ", vnode.attrs.dnd.drop);
-            console.log("Sink ", vnode.attrs.containers.sink);
-            const {source, sink, drag} = dropItem(
-              vnode.attrs.containers,
-              vnode.attrs.component.attributs.id,
-              vnode.attrs.dnd.drag
-            );
-            vnode.attrs.containers.source = source;
-            vnode.attrs.containers.sink = sink;
-            vnode.attrs.dnd.drag = drag;
-            vnode.attrs.dnd.drop = null;
-          },
-          ondragleave: (e) =>{
-            // e.preventDefault();
-            e.stopPropagation();
-            leaveContainer(vnode.attrs.container, vnode.attrs.containers, vnode.attrs.component.attributs.id)
-          }
-        },
-        vnode.attrs.component.children.map((item) => {
-          return m(Viewer, {
-            component: item,
-            dnd: vnode.attrs.dnd,
-            container: vnode.attrs.container,
-            containers: vnode.attrs.containers,
-          });
-        })
-      );
-    else if (vnode.attrs.component.type == "button") {
-      return m(
-        "button",
-        {
-          id: vnode.attrs.component.attributs.id,
-          class: vnode.attrs.component.attributs.class,
-          name: vnode.attrs.component.attributs.name,
-          title: vnode.attrs.component.attributs.title,
-          style: vnode.attrs.component.attributs.style,
-          draggable: true,
-        },
-        vnode.attrs.component.attributs.value
-      );
-    } else if (vnode.attrs.component.type == "label") {
-      return m(
-        "label",
-        {
-          id: vnode.attrs.component.attributs.id,
-          class: vnode.attrs.component.attributs.class,
-          name: vnode.attrs.component.attributs.name,
-          title: vnode.attrs.component.attributs.title,
-          style: vnode.attrs.component.attributs.style,
-          draggable: true,
-        },
-        vnode.attrs.component.attributs.value
-      );
-    } else if (vnode.attrs.component.type == "input") {
-      return m(
-        "label",
-        { for: this.id },
-        vnode.attrs.component.attributs.label,
-
-        m("input", {
-          id: vnode.attrs.component.attributs.id,
-          class: vnode.attrs.component.attributs.class,
-          name: vnode.attrs.component.attributs.name,
-          title: vnode.attrs.component.attributs.title,
-          style: vnode.attrs.component.attributs.style,
-          type: vnode.attrs.component.attributs.subtype,
-          placeholder: vnode.attrs.component.attributs.placeholder,
-          draggable: true,
-        })
-      );
-    } else if (vnode.attrs.component.type == "textarea")
-      return m("textarea", {
-        id: vnode.attrs.component.attributs.id,
-        class: vnode.attrs.component.attributs.class,
-        name: vnode.attrs.component.attributs.name,
-        placeholder: vnode.attrs.component.attributs.placeholder,
-        style: vnode.attrs.component.attributs.style,
-        draggable: true,
+    else if (vnode.attrs.component.tag == "group")
+      return m(group, {
+        // Utilisation du composant group
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
       });
-    else if (vnode.attrs.component.type == "form")
+    else if (vnode.attrs.component.tag == "button") {
+      return m(button, {
+        // Utilisation du composant button
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
+      });
+    } else if (vnode.attrs.component.tag == "label") {
+      return m(label, {
+        // Utilisation du composant label
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
+      });
+    } else if (vnode.attrs.component.tag == "input") {
+      return m(input, {
+        // Utilisation du composant input
+        component: vnode.attrs.component,
+        container: vnode.attrs.container,
+        dnd: vnode.attrs.dnd,
+        containers: vnode.attrs.containers,
+        eltClicked: vnode.attrs.eltClicked,
+      });
+    } else if (vnode.attrs.component.tag == "textarea")
+    return m(textarea, {
+      // Utilisation du composant input
+      component: vnode.attrs.component,
+      container: vnode.attrs.container,
+      dnd: vnode.attrs.dnd,
+      containers: vnode.attrs.containers,
+      eltClicked: vnode.attrs.eltClicked,
+    });
+    else if (vnode.attrs.component.tag == "form")
       return m(
         "form",
         {
@@ -213,23 +110,19 @@ export const Viewer = {
           draggable: true,
         },
         vnode.attrs.component.children.map((item) => {
-          return m(viewer, { component: item });
+          return m(Viewer, { component: item });
         })
       );
-    else if (vnode.attrs.component.type == "paragraph")
-      return m(
-        "p",
-        {
-          id: vnode.attrs.component.attributs.id,
-          class: vnode.attrs.component.attributs.class,
-          name: vnode.attrs.component.attributs.name,
-          title: vnode.attrs.component.attributs.title,
-          style: vnode.attrs.component.attributs.style,
-          draggable: true,
-        },
-        vnode.attrs.component.attributs.value
-      );
-    else if (vnode.attrs.component.type == "radio") {
+    else if (vnode.attrs.component.tag == "paragraph")
+    return m(paragraph, {
+      // Utilisation du composant span
+      component: vnode.attrs.component,
+      container: vnode.attrs.container,
+      dnd: vnode.attrs.dnd,
+      containers: vnode.attrs.containers,
+      eltClicked: vnode.attrs.eltClicked,
+    });
+    else if (vnode.attrs.component.tag == "radio") {
       return vnode.attrs.component.attributs.items.map((item) => {
         return m("div", [
           m("input", {
@@ -238,7 +131,7 @@ export const Viewer = {
             name: vnode.attrs.component.attributs.name,
             title: vnode.attrs.component.attributs.title,
             style: vnode.attrs.component.attributs.style,
-            type: "radio",
+            tag: "radio",
           }),
           m(
             "label",
@@ -250,7 +143,7 @@ export const Viewer = {
           ),
         ]);
       });
-    } else if (vnode.attrs.component.type == "select") {
+    } else if (vnode.attrs.component.tag == "select") {
       return m(
         "label",
         { for: this.id },
@@ -273,7 +166,7 @@ export const Viewer = {
           ]
         )
       );
-    } else if (vnode.attrs.component.type == "table") {
+    } else if (vnode.attrs.component.tag == "table") {
       return m(
         "table",
         {
@@ -300,7 +193,7 @@ export const Viewer = {
           }),
         ]
       );
-    } else if (vnode.attrs.component.type == "link") {
+    } else if (vnode.attrs.component.tag == "link") {
       return m(
         "a",
         {
@@ -318,7 +211,7 @@ export const Viewer = {
         },
         vnode.attrs.component.attributs.value
       );
-    } else if (vnode.attrs.component.type == "list") {
+    } else if (vnode.attrs.component.tag == "list") {
       return m(
         "ul",
         {

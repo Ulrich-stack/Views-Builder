@@ -1,3 +1,5 @@
+import { spanProps } from "../components/properties/span";
+
 let count = 0;
 
 function styleFormat(st) {
@@ -17,7 +19,7 @@ export function modelCreate(tag) {
     if (tag == "span") {
         count++;
         return {
-            type: "span",
+            tag: "span",
             attributs: {
                 id: count,
                 class: "",
@@ -34,12 +36,13 @@ export function modelCreate(tag) {
                 onclick: " CODE",
                 value: "Span " + count,
             },
+            props: spanProps
         }
     }
     else if (tag == "hx") {
         count++;
         return {
-            type: "hx",
+            tag: "hx",
             attributs: {
                 id: count,
                 class: "",
@@ -62,7 +65,7 @@ export function modelCreate(tag) {
     else if (tag == "hr") {
         count++;
         return {
-            type: "hr",
+            tag: "hr",
             attributs: {
                 id: count,
                 class: "",
@@ -79,7 +82,7 @@ export function modelCreate(tag) {
     else if (tag == "icon") {
         count++;
         return {
-            type: "icon",
+            tag: "icon",
             attributs: {
                 id: count,
                 class: "fa-brands fa-html5",
@@ -96,7 +99,7 @@ export function modelCreate(tag) {
     else if (tag == "select") {
         count++;
         return {
-            type: "select",
+            tag: "select",
             labelValue: "",
             attributs: {
                 id: count,
@@ -121,7 +124,7 @@ export function modelCreate(tag) {
     else if (tag == "group") {
         count++;
         return {
-            type: "group",
+            tag: "group",
             attributs: {
                 id: count,
                 name: "group" + count,
@@ -142,7 +145,7 @@ export function modelCreate(tag) {
     else if (tag == "button") {
         count++;
         return {
-            type: "button",
+            tag: "button",
             attributs: {
                 id: count,
                 class: "",
@@ -162,7 +165,7 @@ export function modelCreate(tag) {
     else if (tag == "label") {
         count++;
         return {
-            type: "label",
+            tag: "label",
             attributs: {
                 id: count,
                 name: "label" + count,
@@ -181,7 +184,7 @@ export function modelCreate(tag) {
     else if (tag == "input") {
         count++;
         return {
-            type: "input",
+            tag: "input",
             attributs: {
                 id: count,
                 class: "",
@@ -203,7 +206,7 @@ export function modelCreate(tag) {
     else if (tag == "textarea") {
         count++;
         return {
-            type: "textarea",
+            tag: "textarea",
             labelValue: "",
             attributs: {
                 id: count,
@@ -222,7 +225,7 @@ export function modelCreate(tag) {
     else if(tag == "form"){
         count++;
         return{
-            type: "form",
+            tag: "form",
             attributs: {
                 id: count,
                 name: "form"+ count,
@@ -243,7 +246,7 @@ export function modelCreate(tag) {
     else if (tag == "paragraph") {
         count++;
         return {
-            type: "paragraph",
+            tag: "paragraph",
             attributs: {
                 id: count,
                 class: "",
@@ -260,7 +263,7 @@ export function modelCreate(tag) {
     else if (tag == "radio") {
         count++;
         return {
-            type: "radio",
+            tag: "radio",
             attributs: {
                 id: count,
                 class: "",
@@ -281,7 +284,7 @@ export function modelCreate(tag) {
     else if (tag == "table") {
         count++;
         return {
-            type: "table",
+            tag: "table",
             attributs: {
                 id: count,
                 class: "",
@@ -309,7 +312,7 @@ export function modelCreate(tag) {
     else if (tag == "link") {
         count++;
         return {
-            type: "link",
+            tag: "link",
             attributs: {
                 id: count,
                 class: "",
@@ -328,7 +331,7 @@ export function modelCreate(tag) {
     else if(tag == "list"){
         count++;
         return {
-            type: "list",
+            tag: "list",
             attributs: {
                 id: count,
                 class: "",

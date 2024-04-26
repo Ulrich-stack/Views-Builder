@@ -28,6 +28,7 @@ export const Page = {
               container={vnode.attrs.container}
               containers={vnode.attrs.containers}
               dnd={vnode.attrs.dnd}
+              eltClicked={vnode.attrs.eltClicked}
             />
           );
         })}

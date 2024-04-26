@@ -102,7 +102,7 @@
     {
         "id": "paragraph",
         "value": "paragraph",
-        "type":"container"
+        "type":"simple"
     },
     {
         "id": "outlet",
