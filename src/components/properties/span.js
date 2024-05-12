@@ -1,8 +1,14 @@
 export const spanProps = [
     {
+        name: "tag",
+        tag: "input",
+        type: "text",
+        readOnly: true
+    },
+    {
         name: "id",
         tag: "input",
-        type: "number",
+        type: "text",
         readOnly: true
     },
     {

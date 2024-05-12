@@ -2,6 +2,7 @@ import m from "mithril";
 import tags from "/assets/tags.json"; // Ensure tags.json is structured as shown above
 import { createStart } from "../utils/dnd";
 import store from "../store";
+import tagIcon from "../components/tagIcon";
 
 const Tags = {
   oninit: function (vnode) {
@@ -24,7 +25,7 @@ const Tags = {
             </div>
 
             {vnode.state.showTypes[index] && (
-              <div>
+              <div class="tag-items">
                 {category.elements.map((item) => (
                   <div
                     key={item.id}
@@ -36,7 +37,7 @@ const Tags = {
                       console.log("Drag start:", store.state.dnd.drag);
                     }}
                   >
-                    {item.value}
+                    {tagIcon(item.value)}
                   </div>
                 ))}
               </div>

@@ -1,3 +1,14 @@
+import {
+  TitleIcon,
+  HrIcon,
+  ImageIcon,
+  LabelIcon,
+  LinkIcon,
+  ListIcon,
+  FormatAlignLeftIcon,
+  StarBorder,
+} from "@mui/icons-material";
+
 export function getParentById(ct, id) {
   let c, re;
   console.log("getParent ");
@@ -49,4 +60,52 @@ export function createTempDiv(container) {
     attributs: tempDivAttributes,
     children: [],
   });
+}
+
+export function assignIcon(name) {
+  switch (name) {
+    case "hx":
+      return "/assets/svgs/hx.svg";
+    case "hr":
+      return "/assets/svgs/hr.svg";
+    case "img":
+      return "/assets/svgs/image.svg";
+    case "span":
+      return "/assets/svgs/span.svg";
+    case "label":
+      return "/assets/svgs/label.svg";
+    case "icon":
+      return "/assets/svgs/icon.svg";
+    case "paragraph":
+      return "/assets/svgs/paragraph.svg";
+    case "nav":
+      return "/assets/svgs/menu.svg";
+    case "tag":
+      return "/assets/svgs/tag.svg";
+    case "link":
+      return "/assets/svgs/link.svg";
+    case "list":
+      return "/assets/svgs/list.svg";
+    case "form":
+      return "/assets/svgs/form.svg";
+    case "input":
+      return "/assets/svgs/input.svg";
+    case "table":
+      return "/assets/svgs/table.svg";
+    case "select":
+      return "/assets/svgs/select.svg";
+    case "radio":
+      return "/assets/svgs/radio.svg";
+    case "button":
+      return "/assets/svgs/button.svg";
+    case "textarea":
+      return "/assets/svgs/textarea.svg";
+    case "form":
+      return "/assets/svgs/form.svg";
+    case "group":
+      return "/assets/svgs/group.svg";
+
+    default:
+      return null; // Return null or a default path if the name doesn't match
+  }
 }
