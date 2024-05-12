@@ -5,6 +5,7 @@ import {
   dropItem,
   handleComponentClicked,
 } from "../../utils/dnd";
+import store from "../../store";
 
 export const button = {
   view: function (vnode) {
@@ -23,17 +24,17 @@ export const button = {
             vnode.attrs.container,
             vnode.attrs.component.attributs.id
           );
-          vnode.attrs.dnd.drag = drag;
-          vnode.attrs.containers.source = src;
-          console.log("Item ", drag, " source ", src);
+          store.updateDrag(drag);
+          store.updateSource(src);
         },
         ondragover: (e) => {
           e.preventDefault();
           e.stopPropagation();
-          vnode.attrs.containers.sink = dragItemOver(
+          const sinkCopy = dragItemOver(
             vnode.attrs.container,
             vnode.attrs.component.attributs.id
           );
+          store.updateSink(sinkCopy);
         },
         ondrop: (e) => {
           e.preventDefault();
@@ -44,18 +45,20 @@ export const button = {
             vnode.attrs.component.attributs.id,
             vnode.attrs.dnd.drag
           );
-          vnode.attrs.containers.source = source;
-          vnode.attrs.containers.sink = sink;
-          vnode.attrs.dnd.drag = drag;
-          vnode.attrs.dnd.drop = null;
+          store.updateSource(source);
+          store.updateSink(sink);
+          store.updateDrag(drag);
+          store.updateDrop(null);
         },
         onclick: (e) => {
+          e.stopPropagation();
           e.preventDefault();
-          vnode.attrs.eltClicked = handleComponentClicked(
+          const eltClickedCopy = handleComponentClicked(
             vnode.attrs.container,
             vnode.attrs.component.attributs.id
           );
-          console.log(vnode.attrs.eltClicked);
+          store.updateEltClicked(eltClickedCopy);
+          console.log("click", vnode.attrs.eltClicked);
         },
       },
       vnode.attrs.component.attributs.value || "Default"

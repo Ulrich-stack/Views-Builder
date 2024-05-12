@@ -1,60 +1,51 @@
 import m from "mithril";
-import tags from "/assets/tags.json";
-import { createStart, dragStart } from "../utils/dnd";
+import tags from "/assets/tags.json"; // Ensure tags.json is structured as shown above
+import { createStart } from "../utils/dnd";
+import store from "../store";
 
 const Tags = {
   oninit: function (vnode) {
-    vnode.state.showTypes = [false, false, false];
+    vnode.state.showTypes = new Array(tags.length).fill(false); // Adjust to handle dynamic number of categories
   },
   view: function (vnode) {
-    const types = ["simple", "container", "widgets"];
     return (
-      <div className="w-2/12 border bg-black text-xs text-white overflow-auto">
-        {types.map((type, indexType) => {
-          return (
-            <div>
-              <div
-                className="flex justify-between items-center w-full p-2 border hover:bg-[#363636] border-gray-300"
-                onclick={(e) => {
-                  console.log(vnode.state.showTypes[indexType]);
-
-                  vnode.state.showTypes[indexType] =
-                    !vnode.state.showTypes[indexType];
-                }}
-              >
-                <span>{type}</span>
-                <i
-                  className={`fa-solid fa-chevron-left transform transition-all duration-200 ease-in-out text-xs ${
-                    vnode.state.showTypes[indexType] && "rotate-90 text-red-400"
-                  }`}
-                />
-              </div>
-
-              <div>
-                {tags.map((item) => {
-                  return (
-                    vnode.state.showTypes[indexType] &&
-                    item.type === type && (
-                      <div
-                        className="p-2 hover:bg-[#363636] hover:cursor-pointer"
-                        draggable
-                        ondragstart = { ()=> {vnode.attrs.dnd.drag =  createStart(item.id);
-                        console.log("start ",vnode.attrs.dnd);
-                        }
-}
-                      >
-                        {item.value}
-                      </div>
-                    )
-                  );
-                })}
-              </div>
+      <div class="tags-container">
+        {tags.map((category, index) => (
+          <div key={category.category}>
+            <div
+              class="type-header"
+              onclick={() => {
+                vnode.state.showTypes[index] = !vnode.state.showTypes[index];
+                console.log("Toggle category:", category.category);
+              }}
+            >
+              <span>{category.category}</span>
+              <i class={`chevron ${vnode.state.showTypes[index] ? "rotate" : ""}`} />
             </div>
-          );
-        })}
+
+            {vnode.state.showTypes[index] && (
+              <div>
+                {category.elements.map((item) => (
+                  <div
+                    key={item.id}
+                    class="tag-item"
+                    draggable
+                    ondragstart={() => {
+                      const dragItem = createStart(item.id);
+                      store.updateDrag(dragItem);
+                      console.log("Drag start:", store.state.dnd.drag);
+                    }}
+                  >
+                    {item.value}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     );
-  },
+  }
 };
 
 export default Tags;

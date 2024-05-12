@@ -1,20 +1,110 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-
+body, html{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
 *{
     box-sizing: border-box;
-
 }
-/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
-/** {
-  scrollbar-width: thin;
-  scrollbar-color: #FFFFFF #F2FDFF;
-}*/
 
-/* Chrome, Edge and Safari */
+.main-container {
+  width: 100vw; 
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.full-size {
+  width: 100%; 
+  height: 100%; 
+}
+
+.flex-container {
+  display: flex; 
+  overflow: hidden;
+}
+
+.page-container {
+  width: 66.6667%; 
+  overflow-y: scroll; 
+  overflow-x: hidden; 
+}
+
+/* styles.css */
+.tags-container {
+  width: 16.6667%; /* Equivalent to w-2/12 */
+  border: 1px solid #ccc;
+  background-color: black;
+  color: white;
+  font-size: 0.75rem; /* Equivalent to text-xs */
+  overflow-y: auto;
+}
+
+.type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.type-header:hover {
+  background-color: #363636;
+}
+
+.chevron {
+  transition: transform 0.2s ease-in-out;
+}
+
+.rotate {
+  transform: rotate(90deg);
+  color: red;
+}
+
+.tag-item {
+  padding: 0.5rem;
+}
+
+.tag-item:hover {
+  background-color: #363636;
+  cursor: pointer;
+}
+/* styles.css */
+.properties-container {
+  width: 16.67%; /* Equivalent to w-2/12 */
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.properties-container.empty {
+  justify-content: center;
+  align-items: center;
+}
+
+.properties-header h3 {
+  font-size: 1.125rem; /* Equivalent to text-lg */
+  font-weight: bold;
+}
+
+.property-item {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.property-input {
+  width: 100%;
+  color: black;
+  padding: 4px;
+  margin-top: 4px;
+}
+
+
 *::-webkit-scrollbar {
     height: 2px;
     width: 2px;

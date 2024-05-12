@@ -6,29 +6,26 @@ import store from "../store";
 const Page = {
   view: function (vnode) {
     return (
-      <div
-        className="w-8/12 overflow-y-scroll overflow-x-hidden"
-        // style = "all: unset"
+      <div class="page-container"
         ondragenter={(e) => {
-          vnode.attrs.dnd.drop = vnode.attrs.container;
-          vnode.attrs.containers.sink = vnode.attrs.container;
-          console.log("Premiere div",vnode.attrs.dnd);
+          store.updateDrop(store.container);
+          store.updateSink(store.container);
         }}
         ondragover={(e) => e.preventDefault()}
         ondrop={(e) => {
           e.preventDefault();
-          dropTag(vnode.attrs.dnd.drag, vnode.attrs.container);
-          vnode.attrs.dnd = { drag: null, drop: null };
+          dropTag(store.state.dnd.drag, store.state.container);
+          store.state.dnd = { drag: null, drop: null };
         }}
       >
-        {vnode.attrs.container.map((item) => {
+        {store.state.container.map((item) => {
           return (
             <Viewer
               component={item}
-              container={vnode.attrs.container}
-              containers={vnode.attrs.containers}
-              dnd={vnode.attrs.dnd}
-              eltClicked={vnode.attrs.eltClicked}
+              container={store.state.container}
+              containers={store.state.containers}
+              dnd={store.state.dnd}
+              eltClicked={store.state.eltClicked}
             />
           );
         })}

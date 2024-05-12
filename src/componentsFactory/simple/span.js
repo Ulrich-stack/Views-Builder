@@ -23,8 +23,6 @@ export const span = {
             vnode.attrs.container,
             vnode.attrs.component.attributs.id
           );
-          // vnode.attrs.dnd.drag = drag;
-          // vnode.attrs.containers.source = src;
           store.updateDrag(drag);
           store.updateSource(src);
         },
@@ -41,16 +39,11 @@ export const span = {
         ondrop: (e) => {
           e.preventDefault();
           e.stopPropagation();
-          console.log("drop ", vnode.attrs.dnd.drag);
           const { source, sink, drag } = dropItem(
             vnode.attrs.containers,
             vnode.attrs.component.attributs.id,
             vnode.attrs.dnd.drag
           );
-          // vnode.attrs.containers.source = source;
-          // vnode.attrs.containers.sink = sink;
-          // vnode.attrs.dnd.drag = drag;
-          // vnode.attrs.dnd.drop = null;
           store.updateSource(source);
           store.updateSink(sink);
           store.updateDrag(drag);
@@ -64,7 +57,6 @@ export const span = {
             vnode.attrs.component.attributs.id
           );
           store.updateEltClicked(eltClickedCopy);
-          console.log("click", vnode.attrs.eltClicked);
         },
       },
       vnode.attrs.component.attributs.value || "Default"

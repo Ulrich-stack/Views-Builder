@@ -16,6 +16,7 @@ import { label } from "../componentsFactory/simple/label";
 import { input } from "../componentsFactory/simple/input";
 import { textarea } from "../componentsFactory/simple/textarea";
 import { paragraph } from "../componentsFactory/containers/paragraph";
+import store from "../store";
 
 export const Viewer = {
   view: function (vnode) {
@@ -26,7 +27,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     else if (vnode.attrs.component.tag == "hx")
       return m(hx, {
@@ -35,7 +35,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     else if (vnode.attrs.component.tag == "hr")
       return m(hr, {
@@ -44,7 +43,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     else if (vnode.attrs.component.tag == "icon")
       return m("i", {
@@ -61,7 +59,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     else if (vnode.attrs.component.tag == "button") {
       return m(button, {
@@ -70,7 +67,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     } else if (vnode.attrs.component.tag == "label") {
       return m(label, {
@@ -79,7 +75,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     } else if (vnode.attrs.component.tag == "input") {
       return m(input, {
@@ -88,7 +83,6 @@ export const Viewer = {
         container: vnode.attrs.container,
         dnd: vnode.attrs.dnd,
         containers: vnode.attrs.containers,
-        eltClicked: vnode.attrs.eltClicked,
       });
     } else if (vnode.attrs.component.tag == "textarea")
     return m(textarea, {
