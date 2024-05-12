@@ -35,8 +35,8 @@ export function modelCreate(tag) {
                 },
                 onclick: " CODE",
                 value: "Span " + count,
+                props: spanProps
             },
-            props: spanProps
         }
     }
     else if (tag == "hx") {

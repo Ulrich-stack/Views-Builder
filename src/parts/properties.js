@@ -1,9 +1,8 @@
 import m from "mithril";
 
-export const Properties = {
-    
+const Properties = {
   view: function (vnode) {
-    console.log("j'ai clické", vnode.attrs.eltClicked.props)
+    console.log("Properties", vnode.attrs.eltClicked)
 
     return <div className="w-2/12 bg-black text-white flex flex-col">{
         vnode.attrs.eltClicked && Array.isArray(vnode.attrs.eltClicked.props) && vnode.attrs.eltClicked.props.map((item)=>{
@@ -18,3 +17,5 @@ export const Properties = {
     }</div>;
   },
 };
+
+export default Properties;

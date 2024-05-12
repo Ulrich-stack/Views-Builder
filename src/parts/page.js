@@ -1,8 +1,9 @@
 import m from "mithril";
 import { dropTag } from "../utils/dnd";
 import { Viewer } from "../components/viewer";
+import store from "../store";
 
-export const Page = {
+const Page = {
   view: function (vnode) {
     return (
       <div
@@ -11,8 +12,7 @@ export const Page = {
         ondragenter={(e) => {
           vnode.attrs.dnd.drop = vnode.attrs.container;
           vnode.attrs.containers.sink = vnode.attrs.container;
-
-          console.log(vnode.attrs.dnd);
+          console.log("Premiere div",vnode.attrs.dnd);
         }}
         ondragover={(e) => e.preventDefault()}
         ondrop={(e) => {
@@ -36,3 +36,5 @@ export const Page = {
     );
   },
 };
+
+export default Page;

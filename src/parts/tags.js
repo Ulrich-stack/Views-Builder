@@ -2,7 +2,7 @@ import m from "mithril";
 import tags from "/assets/tags.json";
 import { createStart, dragStart } from "../utils/dnd";
 
-export const Tags = {
+const Tags = {
   oninit: function (vnode) {
     vnode.state.showTypes = [false, false, false];
   },
@@ -56,3 +56,5 @@ export const Tags = {
     );
   },
 };
+
+export default Tags;
