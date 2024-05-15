@@ -1,6 +1,6 @@
 import m from "mithril";
 import { dropTag } from "../utils/dnd";
-import { Viewer } from "../components/viewer";
+import { Viewer } from "../componentsFactory/viewer";
 import store from "../store";
 
 const Page = {

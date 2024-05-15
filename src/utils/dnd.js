@@ -10,7 +10,6 @@ import tags from "/assets/tags.json";
 let dragEnterCounter = false;
 
 export function createStart(value) {
-  // un élément tiré de l'ensemble des balises
 
   console.log("Start ", value);
   return { tag: value, source: "tags" };

@@ -9,6 +9,34 @@ body, html{
     box-sizing: border-box;
 }
 
+.head-container{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.generate{
+  background-color:transparent;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.generate:hover{
+  cursor: pointer;
+  background-color: #363636;
+}
+
+
+.w-full{
+  width: 100%;
+}
+
+.bg-primary{
+  background-color: #222;
+}
+
 .icons{
   display: flex;
   flex-direction: column;
@@ -43,10 +71,32 @@ body, html{
   overflow-x: hidden; 
 }
 
+.disabled{
+  pointer-events: none;
+}
+
+input[type="color"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  height: 40px;
+  width: 40px;
+}
+
+.style-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* styles.css */
 .tags-container {
   width: 16.6667%; 
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   background-color: #222;
   color: white;
   font-size: 0.75rem;
@@ -58,7 +108,7 @@ body, html{
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.8rem;
   border-bottom: 1px solid #ccc;
   cursor: pointer;
 }
@@ -82,6 +132,7 @@ body, html{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  border-bottom: 1px solid white;
 }
 
 .tag-item:hover {
@@ -96,6 +147,7 @@ body, html{
   background-color: #222;
   color: white;
   flex-direction: column;
+  overflow: scroll;
 }
 
 .properties-content{
@@ -105,12 +157,35 @@ body, html{
   padding: 12px;
 }
 
+.gap-2{
+  gap: 0.5rem;
+}
+
 .input-text{
   padding: 0.4rem;
   background-color: transparent;
   border: none;
   color: white;
   /* border-bottom: 1px solid #ccc; */
+}
+
+.input-select{
+  width: 75%;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.style-option{
+  background-color: #222;
+  color: white;
+  padding: 4px;
+  border: none;
+}
+
+.input-select:focus{
+  outline: none;
+  
 }
 
 .input-text:focus{
@@ -125,6 +200,7 @@ body, html{
 
 .label-attribut{
   color: #ccc;
+  width: 25%;
 }
 
 .properties-header {
@@ -195,7 +271,7 @@ body, html{
   width: 100%;
   padding: 5px;
   margin-top: 5px;
-  background: #333; /* Slightly lighter dark background for inputs */
+  background: #333;
   border: 1px solid #555;
   color: white;
 }
@@ -232,13 +308,6 @@ body, html{
   }
   
 
-
-body, html, main{
-    width: 100%;
-    height: 100%;
-    /* font-family: 'Inter', sans-serif;
-    font-weight: 100; */
-}
 
 .rotate-90 {
     transform: rotate(90deg) !important;

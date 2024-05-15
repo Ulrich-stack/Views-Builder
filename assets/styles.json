@@ -1,0 +1,380 @@
+[
+  {
+    "category": "Layout",
+    "styles": [
+      {
+        "name": "Display",
+        "cssProperty": "display",
+        "type": "select",
+        "options": ["block", "inline-block", "flex", "grid", "none"],
+        "notApplicableTo": []
+      },
+      {
+        "name": "Position",
+        "cssProperty": "position",
+        "type": "select",
+        "options": ["static", "relative", "absolute", "fixed"],
+        "notApplicableTo": []
+      },
+      {
+        "name": "top",
+        "cssProperty": "top",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Z-index",
+        "cssProperty": "z-index",
+        "type": "number",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Flexbox",
+        "cssProperty": "flex",
+        "type": "text",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "span",
+          "label",
+          "icon",
+          "paragraph",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "link",
+          "form"
+        ]
+      },
+      {
+        "name": "Grid",
+        "cssProperty": "grid",
+        "type": "text",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "span",
+          "label",
+          "icon",
+          "paragraph",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "link",
+          "form"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Dimension",
+    "styles": [
+      {
+        "name": "Width",
+        "cssProperty": "width",
+        "type": "text",
+        "notApplicableTo": ["hr", "label", "icon", "radio"]
+      },
+      {
+        "name": "Height",
+        "cssProperty": "height",
+        "type": "text",
+        "notApplicableTo": ["hr", "label", "icon", "radio"]
+      },
+      {
+        "name": "Margin",
+        "cssProperty": "margin",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Padding",
+        "cssProperty": "padding",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Box Sizing",
+        "cssProperty": "box-sizing",
+        "type": "select",
+        "options": ["border-box", "content-box"],
+        "notApplicableTo": []
+      }
+    ]
+  },
+  {
+    "category": "Typography",
+    "styles": [
+      {
+        "name": "Font Family",
+        "cssProperty": "font-family",
+        "type": "text",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Font Size",
+        "cssProperty": "font-size",
+        "type": "text",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Font Weight",
+        "cssProperty": "font-weight",
+        "type": "select",
+        "options": [
+          "normal",
+          "bold",
+          "bolder",
+          "lighter",
+          "100",
+          "200",
+          "300",
+          "400",
+          "500",
+          "600",
+          "700",
+          "800",
+          "900"
+        ],
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Text Align",
+        "cssProperty": "text-align",
+        "type": "select",
+        "options": ["left", "right", "center", "justify"],
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Line Height",
+        "cssProperty": "line-height",
+        "type": "text",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Text Color",
+        "cssProperty": "color",
+        "type": "color",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Text Decoration",
+        "cssProperty": "text-decoration",
+        "type": "select",
+        "options": ["none", "underline", "overline", "line-through"],
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Letter Spacing",
+        "cssProperty": "letter-spacing",
+        "type": "text",
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      },
+      {
+        "name": "Text Transform",
+        "cssProperty": "text-transform",
+        "type": "select",
+        "options": ["none", "capitalize", "uppercase", "lowercase"],
+        "notApplicableTo": [
+          "hr",
+          "img",
+          "icon",
+          "button",
+          "select",
+          "textarea",
+          "radio",
+          "form"
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Visual",
+    "styles": [
+      {
+        "name": "Background Color",
+        "cssProperty": "background-color",
+        "type": "color",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Background Image",
+        "cssProperty": "background-image",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Border",
+        "cssProperty": "border",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Border Radius",
+        "cssProperty": "border-radius",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Box Shadow",
+        "cssProperty": "box-shadow",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Opacity",
+        "cssProperty": "opacity",
+        "type": "number",
+        "notApplicableTo": []
+      }
+    ]
+  },
+  {
+    "category": "Animation",
+    "styles": [
+      {
+        "name": "Transition",
+        "cssProperty": "transition",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Animation Name",
+        "cssProperty": "animation-name",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Animation Duration",
+        "cssProperty": "animation-duration",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Animation Timing Function",
+        "cssProperty": "animation-timing-function",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Animation Delay",
+        "cssProperty": "animation-delay",
+        "type": "text",
+        "notApplicableTo": []
+      },
+      {
+        "name": "Animation Iteration Count",
+        "cssProperty": "animation-iteration-count",
+        "type": "text",
+        "notApplicableTo": []
+      }
+    ]
+  },
+  {
+    "category": "Miscellaneous",
+    "styles": [
+      {
+        "name": "Cursor",
+        "cssProperty": "cursor",
+        "type": "select",
+        "options": ["auto", "default", "pointer", "text"],
+        "notApplicableTo": []
+      },
+      {
+        "name": "Overflow",
+        "cssProperty": "overflow",
+        "type": "select",
+        "options": ["visible", "hidden", "scroll", "auto"],
+        "notApplicableTo": []
+      },
+      {
+        "name": "Visibility",
+        "cssProperty": "visibility",
+        "type": "select",
+        "options": ["visible", "hidden", "collapse"],
+        "notApplicableTo": []
+      },
+      {
+        "name": "Pointer Events",
+        "cssProperty": "pointer-events",
+        "type": "select",
+        "options": ["auto", "none"],
+        "notApplicableTo": []
+      }
+    ]
+  }
+]
