@@ -1,9 +1,10 @@
-export const labelProps = [
+export const navProps = [
     {
         name: "tag",
         tag: "input",
         type: "text",
-        readOnly: true
+        readOnly: true,
+        value: "nav"  // Default value for tag
     },
     {
         name: "id",
@@ -18,7 +19,7 @@ export const labelProps = [
         readOnly: false
     },
     {
-        name: "value",
+        name: "name",
         tag: "input",
         type: "text",
         readOnly: false

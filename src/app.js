@@ -11,8 +11,17 @@ const App = {
     return (
       <main class="main-container">
         <div class="full-size">
-          <div class="head-container w-full bg-primary text-white">
-            <button class="generate text-white" onclick={()=> console.log("Génère ", generateHTML(store.state.container))}>Generate</button>
+          <div class="head-container w-full bg-secondary text-white">
+            <button
+              class="generate text-white"
+              onclick={() =>
+                console.log("Génère ", generateHTML(store.state.container))
+              }
+            >
+              {" "}
+              <img src="/assets/svgs/code.svg" width={25}></img>
+              <span>Generate</span>
+            </button>
           </div>
           <div class="flex-container full-size">
             <Tags />

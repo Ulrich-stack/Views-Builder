@@ -1,4 +1,4 @@
-export const labelProps = [
+export const radioProps = [
     {
         name: "tag",
         tag: "input",
@@ -18,7 +18,25 @@ export const labelProps = [
         readOnly: false
     },
     {
-        name: "value",
+        name: "name",
+        tag: "input",
+        type: "text",
+        readOnly: false
+    },
+    {
+        name: "title",
+        tag: "input",
+        type: "text",
+        readOnly: false
+    },
+    {
+        name: "label",
+        tag: "input",
+        type: "text",
+        readOnly: false
+    },
+    {
+        name: "items",
         tag: "input",
         type: "text",
         readOnly: false

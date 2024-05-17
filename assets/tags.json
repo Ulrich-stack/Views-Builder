@@ -25,7 +25,6 @@
         "category": "Structural Components",
         "elements": [
             { "id": "nav", "value": "nav", "type": "container" },
-            { "id": "tag", "value": "tag", "type": "container" },
             { "id": "link", "value": "link", "type": "container" },
             { "id": "list", "value": "list", "type": "container" },
             { "id": "form", "value": "form", "type": "container" },

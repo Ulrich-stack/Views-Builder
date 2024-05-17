@@ -3,24 +3,23 @@ import { groupProps } from "../components/properties/group";
 import { hrProps } from "../components/properties/hr";
 import { hxProps } from "../components/properties/hx";
 import { spanProps } from "../components/properties/span";
+import { labelProps } from "../components/properties/label";
+import { paragraphProps } from "../components/properties/paragraph";
+import { inputProps } from "../components/properties/input";
+import { textareaProps } from "../components/properties/textarea";
+import { radioProps } from "../components/properties/radio";
+import { navProps } from "../components/properties/nav";
+import { tagProps } from "../components/properties/tag";
+import { listProps } from "../components/properties/list";
+import { linkProps } from "../components/properties/link";
+import { formProps } from "../components/properties/form";
+import { tableProps } from "../components/properties/table";
+import { applyClickedBorderStyle, styleFormat } from "./utils";
 
 let count = 0;
 
-function styleFormat(st) {
-    let key = Object.keys(st);
-
-    let result = "";
-
-    key.map(item => {
-        if (item != "")
-            result += item + " : " + st[item] + ";";
-    })
-
-    return result;
-}
-
 export function modelCreate(tag) {
-    if (tag == "span") {
+    if (tag === "span") {
         count++;
         return {
             tag: "span",
@@ -29,8 +28,7 @@ export function modelCreate(tag) {
                 class: "",
                 name: "span" + count,
                 title: "",
-                myStyle: {
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
@@ -39,8 +37,7 @@ export function modelCreate(tag) {
                 props: spanProps
             },
         }
-    }
-    else if (tag == "hx") {
+    } else if (tag === "hx") {
         count++;
         return {
             tag: "hx",
@@ -53,9 +50,7 @@ export function modelCreate(tag) {
                 get balise() {
                     return "h" + this.xparam;
                 },
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle);
                 },
@@ -63,8 +58,7 @@ export function modelCreate(tag) {
                 props: hxProps
             },
         }
-    }
-    else if (tag == "hr") {
+    } else if (tag === "hr") {
         count++;
         return {
             tag: "hr",
@@ -72,18 +66,14 @@ export function modelCreate(tag) {
                 id: count,
                 class: "",
                 name: "hr" + count,
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
                 props: hrProps
-                
             },
         }
-    }
-    else if (tag == "icon") {
+    } else if (tag === "icon") {
         count++;
         return {
             tag: "icon",
@@ -91,53 +81,46 @@ export function modelCreate(tag) {
                 id: count,
                 class: "",
                 name: "icon" + count,
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 }
             },
         }
-    }
-    else if (tag == "select") {
+    } else if (tag === "select") {
         count++;
         return {
             tag: "select",
-            // labelValue: "",
             attributs: {
                 id: count,
                 name: "select" + count,
                 class: "",
                 items: "item 1 ,item 2",
-                get tab(){
+                get tab() {
                     return this.items.split(",");
                 },
-                get value(){
+                get value() {
                     return this.items;
                 },
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 }
             },
         }
-    }
-    else if (tag == "group") {
+    } else if (tag === "group") {
         count++;
         return {
             tag: "group",
             attributs: {
                 id: count,
                 name: "group" + count,
-                myStyle: {
-                    "width":"100%",
+                myStyle: applyClickedBorderStyle({
+                    "width": "100%",
                     "border": "dotted 1px black",
                     "min-height": "100px",
                     "padding": "10px"
-                },
+                }, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
@@ -145,8 +128,7 @@ export function modelCreate(tag) {
             },
             children: [],
         }
-    }
-    else if (tag == "button") {
+    } else if (tag === "button") {
         count++;
         return {
             tag: "button",
@@ -155,9 +137,7 @@ export function modelCreate(tag) {
                 class: "",
                 name: "button" + count,
                 title: "",
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
@@ -165,8 +145,7 @@ export function modelCreate(tag) {
                 props: buttonProps
             },
         }
-    }
-    else if (tag == "label") {
+    } else if (tag === "label") {
         count++;
         return {
             tag: "label",
@@ -174,18 +153,15 @@ export function modelCreate(tag) {
                 id: count,
                 name: "label" + count,
                 title: "",
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
-            value: "Label" + count
-
+                value: "Label " + count,
+                props: labelProps
             },
         }
-    }
-    else if (tag == "input") {
+    } else if (tag === "input") {
         count++;
         return {
             tag: "input",
@@ -193,61 +169,56 @@ export function modelCreate(tag) {
                 id: count,
                 class: "",
                 placeholder: "",
-                style: "",
                 name: "input" + count,
                 title: "",
-                label: "" ,
+                label: "",
                 subtype: "",
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
+                disabled: false,
                 get style() {
                     return styleFormat(this.myStyle)
-                }
+                },
+                props: inputProps
             },
         }
-    }
-    else if (tag == "textarea") {
+    } else if (tag === "textarea") {
         count++;
         return {
             tag: "textarea",
-            labelValue: "",
             attributs: {
                 id: count,
                 name: "textarea" + count,
                 class: "",
                 placeholder: "",
                 value: "",
-                myStyle: {},
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
-                }
+                },
+                props: textareaProps
             },
         }
-    }
-
-    else if(tag == "form"){
+    } else if (tag === "form") {
         count++;
-        return{
+        return {
             tag: "form",
             attributs: {
                 id: count,
-                name: "form"+ count,
+                name: "form" + count,
                 class: "",
-                myStyle:{
-                    "height": "100px",
-                    "border":"1px black solid"
-                },
+                myStyle: applyClickedBorderStyle({
+                    "min-height": "100px",
+                    "padding": "10px",
+                    "border": "1px black solid"
+                }, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
+                props: formProps
             },
             children: [],
-
-
         }
-    }
-    else if (tag == "paragraph") {
+    } else if (tag === "paragraph") {
         count++;
         return {
             tag: "paragraph",
@@ -256,64 +227,60 @@ export function modelCreate(tag) {
                 class: "",
                 name: "paragraph" + count,
                 title: "",
-                myStyle: {},
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
                 value: "Paragraph " + count,
+                props: paragraphProps
             },
         }
-    }
-    else if (tag == "radio") {
+    } else if (tag === "radio") {
         count++;
         return {
             tag: "radio",
             attributs: {
                 id: count,
                 class: "",
-                style: "",
                 name: "radio" + count,
                 title: "",
-                label: "" ,
+                label: "",
                 items: ["item 1", "item 2"],
-                myStyle: {
-
-                },
+                myStyle: applyClickedBorderStyle({}, count),
                 get style() {
                     return styleFormat(this.myStyle)
-                }
+                },
+                props: radioProps
             },
         }
-    }
-    else if (tag == "table") {
+    } else if (tag === "table") {
         count++;
         return {
             tag: "table",
             attributs: {
                 id: count,
                 class: "",
-                style: "",
                 name: "table" + count,
                 title: "",
-                label: "" ,
+                label: "",
                 headers: "item 1, item 2",
-                get head(){
+                get head() {
                     return this.headers.split(",");
                 },
                 data: "nom, prénom",
-                get dataItems(){
+                get dataItems() {
                     return this.data.split(",");
                 },
-                myStyle: {
+                myStyle: applyClickedBorderStyle({
                     "border-collapse": "collapse",
-                },
+                }, count),
                 get style() {
                     return styleFormat(this.myStyle)
-                }
+                },
+                props: tableProps
             },
         }
-    }
-    else if (tag == "link") {
+    } else if (tag === "link") {
         count++;
         return {
             tag: "link",
@@ -322,17 +289,17 @@ export function modelCreate(tag) {
                 class: "",
                 name: "link" + count,
                 href: "",
-                myStyle: {
-                    "font-family": " Times New Roman"
-                },
+                myStyle: applyClickedBorderStyle({
+                    "font-family": "Times New Roman"
+                }, count),
                 get style() {
                     return styleFormat(this.myStyle)
                 },
                 value: "Link " + count,
+                props: linkProps
             },
         }
-    }
-    else if(tag == "list"){
+    } else if (tag === "list") {
         count++;
         return {
             tag: "list",
@@ -341,109 +308,39 @@ export function modelCreate(tag) {
                 class: "",
                 name: "list" + count,
                 data: "item 1, item 2",
-                get dataItems(){
+                myStyle: applyClickedBorderStyle({}, count),
+                get style() {
+                    return styleFormat(this.myStyle)
+                },
+                get dataItems() {
                     return this.data.split(",");
-                }
+                },
+                props: listProps
             }
         }
     }
-
-}
-
-
-export function generateHTML(components) {
-    let html = '';
-
-    components.forEach(component => {
-        let attrs = component.attributs;
-        let style = attrs.style ? ` style="${attrs.style}"` : '';
-        let classAttr = attrs.class ? ` class="${attrs.class}"` : '';
-        let idAttr = attrs.id ? ` id="${attrs.id}"` : '';
-        let nameAttr = attrs.name ? ` name="${attrs.name}"` : '';
-        let titleAttr = attrs.title ? ` title="${attrs.title}"` : '';
-        let placeholderAttr = attrs.placeholder ? ` placeholder="${attrs.placeholder}"` : '';
-        let valueAttr = attrs.value ? ` value="${attrs.value}"` : '';
-        let hrefAttr = attrs.href ? ` href="${attrs.href}"` : '';
-        let onclickAttr = attrs.onclick ? ` onclick="${attrs.onclick}"` : '';
-        let xparamAttr = attrs.xparam ? ` xparam="${attrs.xparam}"` : '';
-        let subtypeAttr = attrs.subtype ? ` subtype="${attrs.subtype}"` : '';
-
-        switch (component.tag) {
-            case 'span':
-                html += `<span${idAttr}${classAttr}${titleAttr}${style}${onclickAttr}>${attrs.value}</span>`;
-                break;
-            case 'hx':
-                let hxTag = attrs.xparam ? `h${attrs.xparam}` : 'h1';
-                html += `<${hxTag}${idAttr}${classAttr}${titleAttr}${style}>${attrs.value}</${hxTag}>`;
-                break;
-            case 'hr':
-                html += `<hr${idAttr}${classAttr}${style} />`;
-                break;
-            case 'icon':
-                html += `<i${idAttr}${classAttr}${style}></i>`;
-                break;
-            case 'select':
-                html += `<select${idAttr}${nameAttr}${classAttr}${style}>`;
-                attrs.tab.forEach(item => {
-                    html += `<option value="${item}">${item}</option>`;
-                });
-                html += `</select>`;
-                break;
-            case 'group':
-                html += `<div${idAttr}${nameAttr}${style}>${generateHTML(component.children)}</div>`;
-                break;
-            case 'button':
-                html += `<button${idAttr}${classAttr}${titleAttr}${style}>${attrs.value}</button>`;
-                break;
-            case 'label':
-                html += `<label${idAttr}${nameAttr}${titleAttr}${style}>${attrs.value}</label>`;
-                break;
-            case 'input':
-                html += `<input${idAttr}${classAttr}${placeholderAttr}${style}${nameAttr}${titleAttr}${subtypeAttr}/>`;
-                break;
-            case 'textarea':
-                html += `<textarea${idAttr}${nameAttr}${classAttr}${placeholderAttr}${style}>${attrs.value}</textarea>`;
-                break;
-            case 'form':
-                html += `<form${idAttr}${nameAttr}${classAttr}${style}>${generateHTML(component.children)}</form>`;
-                break;
-            case 'paragraph':
-                html += `<p${idAttr}${classAttr}${titleAttr}${style}>${attrs.value}</p>`;
-                break;
-            case 'radio':
-                attrs.items.forEach((item, index) => {
-                    html += `<input type="radio"${idAttr}${classAttr}${style}${nameAttr}${titleAttr} value="${item}" id="radio${attrs.id}_${index}" />`;
-                    html += `<label for="radio${attrs.id}_${index}">${item}</label>`;
-                });
-                break;
-            case 'table':
-                html += `<table${idAttr}${classAttr}${style}>`;
-                html += `<thead><tr>`;
-                attrs.head.forEach(header => {
-                    html += `<th>${header}</th>`;
-                });
-                html += `</tr></thead>`;
-                html += `<tbody><tr>`;
-                attrs.dataItems.forEach(dataItem => {
-                    html += `<td>${dataItem}</td>`;
-                });
-                html += `</tr></tbody>`;
-                html += `</table>`;
-                break;
-            case 'link':
-                html += `<a${idAttr}${classAttr}${nameAttr}${hrefAttr}${style}>${attrs.value}</a>`;
-                break;
-            case 'list':
-                html += `<ul${idAttr}${classAttr}${nameAttr}>`;
-                attrs.dataItems.forEach(item => {
-                    html += `<li>${item}</li>`;
-                });
-                html += `</ul>`;
-                break;
-            default:
-                break;
+    else if (tag === "nav") {
+        count++;
+        return {
+            tag: "nav",
+            attributs: {
+                id: count,
+                class: "",
+                name: "nav" + count,
+                title: "",
+                myStyle: applyClickedBorderStyle({
+                    "width": "100%",
+                    "border": "dotted 1px black",
+                    "min-height": "100px",
+                    "padding": "10px"
+                }, count),
+                get style() {
+                    return styleFormat(this.myStyle);
+                },
+                value: "Navigation " + count,
+                props: navProps,
+            },
+            children: []
         }
-    });
-
-    return html;
+    } 
 }

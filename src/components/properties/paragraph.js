@@ -1,4 +1,4 @@
-export const labelProps = [
+export const paragraphProps = [
     {
         name: "tag",
         tag: "input",
@@ -19,6 +19,12 @@ export const labelProps = [
     },
     {
         name: "value",
+        tag: "input",
+        type: "text",
+        readOnly: false
+    },
+    {
+        name: "title",
         tag: "input",
         type: "text",
         readOnly: false

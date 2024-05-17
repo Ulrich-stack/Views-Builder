@@ -1,6 +1,6 @@
 
 body, html{
-  font-family: 'Roboto', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -9,11 +9,69 @@ body, html{
     box-sizing: border-box;
 }
 
+.options{
+  width: 20%;
+  background-color: #363636;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  padding-top: 5px;
+}
+
+.dom{
+  overflow-x: scroll;
+  padding: 10px;
+  padding-bottom: 100px;
+}
+
+.options button{
+  padding: 0;
+}
+
+.options img:hover{
+  cursor: pointer;
+}
+
+.tab-option{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.tab-option.tab-active{
+ border-left: 2px solid #00aaff; 
+}
+
+.options-tag{
+  height: 100%;
+  width: 16.6667%; 
+  background-color: #222;
+  color: white;
+  font-size: 0.75rem;
+  overflow-y: auto;
+  display: flex;
+}
+
+.tags-container {
+  width: 80%;
+  background-color: #262626;
+  /* border: 1px solid #ccc; */
+}
+
 .head-container{
   padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px black solid;
 }
 
 .generate{
@@ -21,6 +79,13 @@ body, html{
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.generate span{
+  margin-left: 5px;
 }
 
 .generate:hover{
@@ -35,6 +100,10 @@ body, html{
 
 .bg-primary{
   background-color: #222;
+}
+
+.bg-secondary{
+  background-color: #363636;
 }
 
 .icons{
@@ -93,16 +162,6 @@ input[type="color"] {
   align-items: center;
 }
 
-/* styles.css */
-.tags-container {
-  width: 16.6667%; 
-  /* border: 1px solid #ccc; */
-  background-color: #222;
-  color: white;
-  font-size: 0.75rem;
-  overflow-y: auto;
-}
-
 .type-header {
   display: flex;
   justify-content: space-between;
@@ -144,7 +203,7 @@ input[type="color"] {
 .properties-container {
   font-size: 0.8rem;
   width: 16.67%; 
-  background-color: #222;
+  background-color: #262626;
   color: white;
   flex-direction: column;
   overflow: scroll;
@@ -230,8 +289,6 @@ input[type="color"] {
 }
 
 .properties-container {
-  font-family: Arial, sans-serif;
-  background: #222; /* Dark background */
   color: white;
 }
 
@@ -251,7 +308,6 @@ input[type="color"] {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  /* border-bottom: 3px solid transparent; Invisible border for alignment */
 }
 
 .tab:hover{

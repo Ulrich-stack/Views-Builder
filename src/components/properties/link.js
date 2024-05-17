@@ -1,4 +1,4 @@
-export const labelProps = [
+export const linkProps = [
     {
         name: "tag",
         tag: "input",
@@ -13,6 +13,18 @@ export const labelProps = [
     },
     {
         name: "class",
+        tag: "input",
+        type: "text",
+        readOnly: false
+    },
+    {
+        name: "name",
+        tag: "input",
+        type: "text",
+        readOnly: false
+    },
+    {
+        name: "href",
         tag: "input",
         type: "text",
         readOnly: false

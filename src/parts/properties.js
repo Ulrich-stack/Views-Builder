@@ -20,7 +20,7 @@ const Properties = {
       eltClicked.attributs.props.length > 0;
     const hasStyles =
       eltClicked && eltClicked.attributs && eltClicked.attributs.myStyle;
-    const eltType = eltClicked.tag;
+    const eltType = eltClicked.tag; // Assuming the element type is stored in tag
 
     if (!hasProps && !hasStyles) {
       return <div class="properties-container">No properties to display</div>;

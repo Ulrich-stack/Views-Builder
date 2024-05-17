@@ -1,0 +1,86 @@
+.tree ul {
+    list-style-type: none;
+    padding-left: 1em;
+    position: relative;
+    margin: 0;
+}
+
+.tree ul:before {
+    content: '';
+    display: block;
+    width: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid #ccc;
+}
+
+.tree li {
+    margin: 0.5em 0;
+    padding-left: 1em;
+    position: relative;
+}
+
+.tree li:before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 0;
+    border-top: 1px solid #ccc;
+    margin-top: -1px;
+    position: absolute;
+    top: 1em;
+    left: 0;
+}
+
+.tree li div {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.tree li div:hover {
+    background-color: #f0f0f0;
+    width: 100px;
+}
+
+.tree li div span {
+    margin-right: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.tree li div:hover {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+.tree li div .node-icon {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.tree li div .node-icon:hover {
+    color: #007BFF;
+}
+
+
+.tree li.selected > div {
+    background-color: #007BFF;
+    color: #fff;
+    width: 100px;
+}
+
+
+.tree li.selected > div .node-icon {
+    color: #fff;
+}
+
+.tree li.selected > div span:hover {
+    color: #fff;
+    text-decoration: none;
+}

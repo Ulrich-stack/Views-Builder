@@ -7,7 +7,7 @@
         "cssProperty": "display",
         "type": "select",
         "options": ["block", "inline-block", "flex", "grid", "none"],
-        "notApplicableTo": []
+        "notApplicableTo": ["list"]
       },
       {
         "name": "Position",
@@ -84,6 +84,18 @@
         "notApplicableTo": ["hr", "label", "icon", "radio"]
       },
       {
+        "name": "Min Width",
+        "cssProperty": "min-width",
+        "type": "text",
+        "notApplicableTo": ["hr", "label", "icon", "radio"]
+      },
+      {
+        "name": "Min height",
+        "cssProperty": "min-height",
+        "type": "text",
+        "notApplicableTo": ["hr", "label", "icon", "radio"]
+      },
+      {
         "name": "Margin",
         "cssProperty": "margin",
         "type": "text",
@@ -145,16 +157,7 @@
           "normal",
           "bold",
           "bolder",
-          "lighter",
-          "100",
-          "200",
-          "300",
-          "400",
-          "500",
-          "600",
-          "700",
-          "800",
-          "900"
+          "lighter"
         ],
         "notApplicableTo": [
           "hr",

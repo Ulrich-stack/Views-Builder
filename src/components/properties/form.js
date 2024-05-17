@@ -1,4 +1,4 @@
-export const labelProps = [
+export const formProps = [
     {
         name: "tag",
         tag: "input",
@@ -18,7 +18,7 @@ export const labelProps = [
         readOnly: false
     },
     {
-        name: "value",
+        name: "name",
         tag: "input",
         type: "text",
         readOnly: false
